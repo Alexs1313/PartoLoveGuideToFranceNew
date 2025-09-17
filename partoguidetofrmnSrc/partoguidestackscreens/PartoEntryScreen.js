@@ -1,43 +1,49 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import MainBackground from '../components/MainBackground';
+import {
+  Image as PartoImage,
+  StyleSheet,
+  Text as PartoTxt,
+  TouchableOpacity as PartoTouchableOpacity,
+  View,
+} from 'react-native';
+import MainBackground from '../partoguidecomponets/MainBackground';
 import { useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { BlurView } from '@react-native-community/blur';
 import { useNavigation } from '@react-navigation/native';
 
-const entryInfo = [
+const partoguideentrslds = [
   {
-    label:
+    partoGuideLbl:
       'Bonjour, lovers! I am your guide on a journey through France - the country of romance, tenderness and magical moments. ',
-    description:
+    partoGuideDesc:
       'Are you ready to discover the best places just for the two of you?',
-    btn: 'Next',
-    img: require('../assets/images/entry/1.png'),
+    partoGuideBtn: 'Next',
+    partoGuideImg: require('../assets/images/entry/1.png'),
   },
   {
-    label:
+    partoGuideLbl:
       'I will show you cozy restaurants, cafes and terraces, where a real atmosphere of love reigns. ',
-    description: 'Here, every moment will become special.',
-    btn: 'Continue',
-    img: require('../assets/images/entry/2.png'),
+    partoGuideDesc: 'Here, every moment will become special.',
+    partoGuideBtn: 'Continue',
+    partoGuideImg: require('../assets/images/entry/2.png'),
   },
   {
-    label:
+    partoGuideLbl:
       'You will be able to discover routes for walks together and catch magical moments - sunsets, starry nights and city panoramas that will be remembered forever.',
-    description: '',
-    btn: 'Go',
-    img: require('../assets/images/entry/3.png'),
+    partoGuideDesc: '',
+    partoGuideBtn: 'Go',
+    partoGuideImg: require('../assets/images/entry/3.png'),
   },
   {
-    label:
+    partoGuideLbl:
       'And you will also have your own diary - add photos, notes and save every moment of your love story in France. ',
-    description: 'Together we will make it unforgettable.',
-    btn: 'Start',
-    img: require('../assets/images/entry/4.png'),
+    partoGuideDesc: 'Together we will make it unforgettable.',
+    partoGuideBtn: 'Start',
+    partoGuideImg: require('../assets/images/entry/4.png'),
   },
 ];
 
-const EntryScreen = () => {
+const PartoEntryScreen = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const navigation = useNavigation();
 
@@ -50,7 +56,10 @@ const EntryScreen = () => {
   return (
     <MainBackground>
       <View style={styles.container}>
-        <Image source={entryInfo[currentStep].img} style={{ top: 40 }} />
+        <PartoImage
+          source={partoguideentrslds[currentStep].partoGuideImg}
+          style={{ top: 40 }}
+        />
       </View>
       <View style={styles.entryContainer}>
         <BlurView
@@ -63,12 +72,14 @@ const EntryScreen = () => {
           blurType="dark"
           blurAmount={1}
         />
-        <Text style={styles.label}>{entryInfo[currentStep].label}</Text>
-        <Text style={styles.description}>
-          {entryInfo[currentStep].description}
-        </Text>
+        <PartoTxt style={styles.label}>
+          {partoguideentrslds[currentStep].partoGuideLbl}
+        </PartoTxt>
+        <PartoTxt style={styles.description}>
+          {partoguideentrslds[currentStep].partoGuideDesc}
+        </PartoTxt>
 
-        <TouchableOpacity
+        <PartoTouchableOpacity
           style={{ width: '80%' }}
           activeOpacity={0.7}
           onPress={nextStep}
@@ -77,17 +88,17 @@ const EntryScreen = () => {
             colors={['#9F0505', '#6B0404']}
             style={styles.gradBtn}
           >
-            <Text
+            <PartoTxt
               style={{
                 fontWeight: '700',
                 fontSize: 24,
                 color: '#fff',
               }}
             >
-              {entryInfo[currentStep].btn}
-            </Text>
+              {partoguideentrslds[currentStep].partoGuideBtn}
+            </PartoTxt>
           </LinearGradient>
-        </TouchableOpacity>
+        </PartoTouchableOpacity>
       </View>
     </MainBackground>
   );
@@ -128,4 +139,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EntryScreen;
+export default PartoEntryScreen;

@@ -1,3 +1,11 @@
+import MainBackground from './MainBackground';
+import { useCallback } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
+import { BlurView } from '@react-native-community/blur';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { PARTO_PLACES } from '../partoguideconsts/partoPlaces';
+import Header from './Header';
+import { useStore } from '../partoguidestore/partoguidecontext';
 import {
   Image,
   Platform,
@@ -6,14 +14,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MainBackground from '../components/MainBackground';
-import { useCallback } from 'react';
-import LinearGradient from 'react-native-linear-gradient';
-import { BlurView } from '@react-native-community/blur';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { PARTO_PLACES } from '../data/partoPlaces';
-import Header from '../components/Header';
-import { useStore } from '../store/context';
 
 const PartoPlacesList = ({ place, screen }) => {
   const navigation = useNavigation();

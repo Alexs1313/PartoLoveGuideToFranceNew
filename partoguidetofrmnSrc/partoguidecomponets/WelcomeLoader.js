@@ -1,6 +1,6 @@
 import LottieView from 'lottie-react-native';
 import { Dimensions, Image, Platform, StyleSheet, View } from 'react-native';
-import MainBackground from '../components/MainBackground';
+import MainBackground from '../partoguidecomponets/MainBackground';
 const { height } = Dimensions.get('window');
 
 const WelcomeLoader = () => {

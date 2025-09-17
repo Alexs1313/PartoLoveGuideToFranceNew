@@ -1,3 +1,6 @@
+import MainBackground from '../partoguidecomponets/MainBackground';
+import { useState } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 import {
   Image,
   StyleSheet,
@@ -6,14 +9,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MainBackground from '../components/MainBackground';
-import { useState } from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 import { BlurView } from '@react-native-community/blur';
 import { useNavigation } from '@react-navigation/native';
-import Header from '../components/Header';
+import Header from '../partoguidecomponets/Header';
 import { launchImageLibrary } from 'react-native-image-picker';
-import { useStore } from '../store/context';
+import { useStore } from '../partoguidestore/partoguidecontext';
 
 const CreatePartoMemoryScreen = () => {
   const navigation = useNavigation();

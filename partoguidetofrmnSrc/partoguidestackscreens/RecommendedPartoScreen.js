@@ -1,13 +1,13 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import MainBackground from '../components/MainBackground';
+import MainBackground from '../partoguidecomponets/MainBackground';
 import { useCallback, useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { BlurView } from '@react-native-community/blur';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import CategoryCarousel from '../components/CategoryCarousel';
+import CategoryCarousel from '../partoguidecomponets/CategoryCarousel';
 
-import Header from '../components/Header';
-import { useStore } from '../store/context';
+import Header from '../partoguidecomponets/Header';
+import { useStore } from '../partoguidestore/partoguidecontext';
 
 const RecommendedPartoScreen = () => {
   const navigation = useNavigation();

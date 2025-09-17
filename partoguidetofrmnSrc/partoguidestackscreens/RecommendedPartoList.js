@@ -1,4 +1,4 @@
-import PartoPlacesList from '../components/PartoPlacesList';
+import PartoPlacesList from '../partoguidecomponets/PartoPlacesList';
 
 const RecommendedPartoList = ({ route }) => {
   const place = route.params;

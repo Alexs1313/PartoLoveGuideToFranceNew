@@ -12,8 +12,8 @@ import { useCallback, useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { BlurView } from '@react-native-community/blur';
 import { useFocusEffect } from '@react-navigation/native';
-import Header from '../components/Header';
-import { useStore } from '../store/context';
+import Header from '../partoguidecomponets/Header';
+import { useStore } from '../partoguidestore/partoguidecontext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MapView, { Marker } from 'react-native-maps';
 

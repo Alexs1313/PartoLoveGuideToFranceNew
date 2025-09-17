@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { PARTO_PLACES } from '../data/partoPlaces';
+import { PARTO_PLACES } from '../partoguideconsts/partoPlaces';
 import MapView, { Marker } from 'react-native-maps';
 import Orientation from 'react-native-orientation-locker';
 import { useCallback, useState } from 'react';
-import MainBackground from '../components/MainBackground';
+import MainBackground from '../partoguidecomponets/MainBackground';
 import { BlurView } from '@react-native-community/blur';
-import Header from '../components/Header';
+import Header from '../partoguidecomponets/Header';
 const { height } = Dimensions.get('window');
 
 const PartoMapScreen = () => {

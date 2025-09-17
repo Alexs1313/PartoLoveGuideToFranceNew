@@ -1,68 +1,80 @@
 import { NavigationContainer } from '@react-navigation/native';
-import WelcomeLoader from './src/components/WelcomeLoader';
-import { PartoContextProvider } from './src/store/context';
-import { useEffect, useState } from 'react';
+import WelcomeLoader from './partoguidetofrmnSrc/partoguidecomponets/WelcomeLoader';
+import { PartoContextProvider } from './partoguidetofrmnSrc/partoguidestore/partoguidecontext';
+import { useEffect as partoUseEffect, useState as partoUseState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import PartoDiaryOfMemoriesScreen from './src/screens/PartoDiaryOfMemoriesScreen';
-import CreatePartoMemoryScreen from './src/screens/CreatePartoMemoryScreen';
-import MemoryPartoCardDetails from './src/screens/MemoryPartoCardDetails';
-import RecommendedPartoScreen from './src/screens/RecommendedPartoScreen';
-import RecommendedPartoList from './src/screens/RecommendedPartoList';
-import PartoPlacesCardDetails from './src/screens/PartoPlacesCardDetails';
-import SavedPartoList from './src/screens/SavedPartoList';
-import PartoMapScreen from './src/screens/PartoMapScreen';
-import PartoMainScreen from './src/screens/PartoMainScreen';
-import EntryScreen from './src/screens/EntryScreen';
-
-const Stack = createStackNavigator();
+import PartoDiaryOfMemoriesScreen from './partoguidetofrmnSrc/partoguidestackscreens/PartoDiaryOfMemoriesScreen';
+import CreatePartoMemoryScreen from './partoguidetofrmnSrc/partoguidestackscreens/CreatePartoMemoryScreen';
+import MemoryPartoCardDetails from './partoguidetofrmnSrc/partoguidestackscreens/MemoryPartoCardDetails';
+import RecommendedPartoScreen from './partoguidetofrmnSrc/partoguidestackscreens/RecommendedPartoScreen';
+import RecommendedPartoList from './partoguidetofrmnSrc/partoguidestackscreens/RecommendedPartoList';
+import PartoPlacesCardDetails from './partoguidetofrmnSrc/partoguidestackscreens/PartoPlacesCardDetails';
+import SavedPartoList from './partoguidetofrmnSrc/partoguidestackscreens/SavedPartoList';
+import PartoMapScreen from './partoguidetofrmnSrc/partoguidestackscreens/PartoMapScreen';
+import PartoMainScreen from './partoguidetofrmnSrc/partoguidestackscreens/PartoMainScreen';
+import PartoEntryScreen from './partoguidetofrmnSrc/partoguidestackscreens/PartoEntryScreen';
+const PartoGuideStackNv = createStackNavigator();
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [welcomePartoGuideLdrStt, setWelcomePartoGuideLdrStt] =
+    partoUseState(false);
 
-  useEffect(() => {
+  partoUseEffect(() => {
     setTimeout(() => {
-      setIsLoading(true);
+      setWelcomePartoGuideLdrStt(true);
     }, 5000);
   }, []);
 
   return (
     <NavigationContainer>
       <PartoContextProvider>
-        {isLoading ? (
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="EntryScreen" component={EntryScreen} />
-            <Stack.Screen name="PartoMainScreen" component={PartoMainScreen} />
-            <Stack.Screen
+        {welcomePartoGuideLdrStt ? (
+          <PartoGuideStackNv.Navigator screenOptions={{ headerShown: false }}>
+            <PartoGuideStackNv.Screen
+              name="partoEntryScreen"
+              component={partoEntryScreen}
+            />
+            <PartoGuideStackNv.Screen
+              name="PartoMainScreen"
+              component={PartoMainScreen}
+            />
+            <PartoGuideStackNv.Screen
               name="PartoDiaryOfMemoriesScreen"
               component={PartoDiaryOfMemoriesScreen}
             />
-            <Stack.Screen
+            <PartoGuideStackNv.Screen
               name="CreatePartoMemoryScreen"
               component={CreatePartoMemoryScreen}
             />
-            <Stack.Screen
+            <PartoGuideStackNv.Screen
               name="MemoryPartoCardDetails"
               component={MemoryPartoCardDetails}
             />
-            <Stack.Screen
+            <PartoGuideStackNv.Screen
               name="RecommendedPartoScreen"
               component={RecommendedPartoScreen}
             />
 
-            <Stack.Screen
+            <PartoGuideStackNv.Screen
               name="RecommendedPartoList"
               component={RecommendedPartoList}
             />
 
-            <Stack.Screen
+            <PartoGuideStackNv.Screen
               name="PartoPlacesCardDetails"
               component={PartoPlacesCardDetails}
             />
 
-            <Stack.Screen name="SavedPartoList" component={SavedPartoList} />
+            <PartoGuideStackNv.Screen
+              name="SavedPartoList"
+              component={SavedPartoList}
+            />
 
-            <Stack.Screen name="PartoMapScreen" component={PartoMapScreen} />
-          </Stack.Navigator>
+            <PartoGuideStackNv.Screen
+              name="PartoMapScreen"
+              component={PartoMapScreen}
+            />
+          </PartoGuideStackNv.Navigator>
         ) : (
           <WelcomeLoader />
         )}

@@ -1,8 +1,6 @@
-import PartoPlacesList from '../components/PartoPlacesList';
+import PartoPlacesList from '../partoguidecomponets/PartoPlacesList';
 
 const SavedPartoList = ({ route }) => {
-  const place = route.params;
-
   return <PartoPlacesList screen={'SavedScreen'} />;
 };
 
