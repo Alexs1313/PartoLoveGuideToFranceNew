@@ -31,8 +31,8 @@ const App = () => {
         {welcomePartoGuideLdrStt ? (
           <PartoGuideStackNv.Navigator screenOptions={{ headerShown: false }}>
             <PartoGuideStackNv.Screen
-              name="partoEntryScreen"
-              component={partoEntryScreen}
+              name="PartoEntryScreen"
+              component={PartoEntryScreen}
             />
             <PartoGuideStackNv.Screen
               name="PartoMainScreen"
